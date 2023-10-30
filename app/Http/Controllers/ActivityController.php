@@ -20,6 +20,8 @@ class ActivityController extends Controller
 
                 // $activities =  Activity::all();
 
+                // $activities = Activity::simplePaginate(5);
+
                 $activities = DB::table('activities')->join('activity_status', 'activities.activity_status_id', '=', 'activity_status.id')->select('activities.*', 'activity_status.status')->get();
 
                 $user = auth()->user();
@@ -29,9 +31,17 @@ class ActivityController extends Controller
             ]);
     }
 
-    public function getUser()
+    public function show($id)
     {
-        return $user = auth()->user();
+        // SELECT * FROM activity_portal_dev.activities WHERE id = 1;
+        $activity = Activity::find($id);
+
+        $user = auth()->user();
+
+        return view('activities.show', [
+                'activity' => $activity,
+                'user' => $user
+            ]);
     }
 
     /**
@@ -55,18 +65,32 @@ class ActivityController extends Controller
         // INSERT INTO activities (title,description,activity_status_id);
         // VALUES ('test 5', 'test 5', 3);
         // validate the input
-        $request->validate([
+        // $request->validate([
+        //    'title' => ['required', 'string', 'max:255'],
+        //    'description' => 'required'
+        // ]);
+
+        // Activity::create([
+        //    'title' => $request->title,
+        //    'description' => $request->description,
+        //    'activity_status_id' => 3,
+        // ]);
+
+        $validatedInput = $request -> validate([
             'title' => ['required', 'string', 'max:255'],
-            'description' => 'required'
+            'description' => 'required',
+            'activity_status_id',
+            'file' => 'required'
         ]);
 
-        Activity::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'activity_status_id' => 3
-        ]);
+        $validatedInput['file'] = $request->file('file')->store('public/images');
 
-        return back()->with('success', 'Successfully created!');
+        $validatedInput['activity_status_id'] = 3;
+
+        $activity = Activity::create($validatedInput);
+
+        // return back()->with('success', 'Successfully created!');
+        return redirect('/activity/'.$activity->id)->with('success', 'Successfully created');
     }
 
     /**
@@ -75,15 +99,7 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        // SELECT * FROM activity_portal_dev.activities WHERE id = 1;
-        $activity = Activity::find($id);
 
-        return view('activities.show', [
-                'activity' => $activity
-            ]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -108,22 +124,30 @@ class ActivityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         // UPDATE activities SET title = 'new title', description = 'new description', activity_status_id = 3;
-        $request->validate([
+        $validatedInputs = $request->validate([
             'title' => ['required', 'string', 'max:255'],
-            'description' => 'required'
+            'description' => 'required',
+            'activity_status_id',
+            'file' => 'required'
         ]);
 
-        Activity::where('id', $id)
-        ->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'activity_status_id' => 3
-        ]);
+        $validatedInputs['file'] = $request->file('file')->store('public/images');
 
-        return back()->with('success', 'Edit success!');
+        $validatedInputs['activity_status_id'] = 3;
+
+        // Activity::where('id', $id)
+        // ->update([
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+        //     'activity_status_id' => 1
+        // ]);
+
+        $activity = Activity::where('id', $id)->update($validatedInputs);
+
+        return redirect('/activities')->with('success', 'Edit success!');
     }
 
     /**

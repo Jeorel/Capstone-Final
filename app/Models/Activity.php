@@ -16,6 +16,8 @@ class Activity extends Model
     protected $fillable = [
             'title',
             'description',
+            'file',
             'activity_status_id'
+
         ];
 }

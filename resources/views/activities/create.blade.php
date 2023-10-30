@@ -14,7 +14,7 @@
                     @endif
 
                     <!-- CSRF - CROSS SITE REQUEST FORGERY -->
-                    <form action="/activity" method="POST">
+                    <form action="/activity" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
@@ -31,6 +31,13 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">File</label>
+                            <input type="file" class="form-control" name="file" value="{{ old('file') }}"><br>
+                            @error('file')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <p class="text-right">
                                 <button type="button" onclick='window.location.href = "/activities"' class="btn btn-danger" >Cancel</button>
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -38,11 +45,6 @@
                         </div>
                     </form>
                 </div>
-                @if(session('success'))
-                <h6 class="alert alert-success">
-                    {{ session('success') }}
-                </h6>
-                @endif
             </div>
         </div>
     </div>
