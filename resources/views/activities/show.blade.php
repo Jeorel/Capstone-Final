@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $activity->activity }}</div>
+                <div class="card-header">Id No.{{ $activity->id }}</div>
 
                 <div class="card-body container">
                         <div class="row justify-content-start">
@@ -56,10 +56,9 @@
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            Featured
+                        <h3>{{ $activity->title }}</h5>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $activity->title }}</h5>
                             <p class="card-text">{{ $activity->description }}</p>
                         </div>
                     </div><br>
