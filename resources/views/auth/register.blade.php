@@ -63,11 +63,11 @@
 
                         <div class="row mb-3 justify-content-center">
                             <div class="form-check form-check-inline col-2">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="roles_id" id="inlineRadio1" value="1">
                                 <label class="form-check-label" for="inlineRadio1">{{ __('Teacher') }}</label>
                             </div>
                             <div class="form-check form-check-inline col-1">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <input class="form-check-input" type="radio" name="roles_id" id="inlineRadio2" value="2">
                                 <label class="form-check-label" for="inlineRadio2">{{ __('Student') }}</label>
                             </div>
                         </div>

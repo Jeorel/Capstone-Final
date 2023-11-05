@@ -17,7 +17,8 @@ class Activity extends Model
             'title',
             'description',
             'file',
-            'activity_status_id'
+            'activity_status_id',
+            'owner'
 
         ];
 }

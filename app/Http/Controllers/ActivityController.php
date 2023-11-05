@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Activity;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\File;
 
 class ActivityController extends Controller
 {
@@ -22,9 +23,15 @@ class ActivityController extends Controller
 
         // $activities = Activity::simplePaginate(5);
 
-        $activities = DB::table('activities')->join('activity_status', 'activities.activity_status_id', '=', 'activity_status.id')->select('activities.*', 'activity_status.status')->get();
-
         $user = auth()->user();
+
+        $activities;
+        if($user->roles_id == 1){
+            $activities = DB::table('activities')->join('activity_status', 'activities.activity_status_id', '=', 'activity_status.id')->join('users', 'users.id', '=', 'activities.owner')->select('activities.*', 'activity_status.status', 'users.name')->get();
+        }else{
+            $activities = DB::table('activities')->join('activity_status', 'activities.activity_status_id', '=', 'activity_status.id')->join('users', 'users.id', '=', 'activities.owner')->where('activities.owner', '=', $user->id)->select('activities.*', 'activity_status.status', 'users.name')->get();
+        }
+
         return view('activities.index',
         [
         'activities' => $activities,
@@ -64,36 +71,53 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        // INSERT INTO activities (title,description,activity_status_id);
-        // VALUES ('test 5', 'test 5', 3);
-        // validate the input
-        // $request->validate([
-        //    'title' => ['required', 'string', 'max:255'],
-        //    'description' => 'required'
-        // ]);
-
-        // Activity::create([
-        //    'title' => $request->title,
-        //    'description' => $request->description,
-        //    'activity_status_id' => 3,
-        // ]);
-
         $validatedInput = $request -> validate
         ([
             'title' => ['required', 'string', 'max:255'],
             'description' => 'required',
             'activity_status_id',
-            'file' => 'required'
+            'file' => 'required|image',
+            'owner'
         ]);
 
         $validatedInput['file'] = $request->file('file')->store('public/images');
 
         $validatedInput['activity_status_id'] = 3;
 
+        $user = auth()->user();
+        $validatedInput['owner'] = $user->id;
+
         $activity = Activity::create($validatedInput);
 
-        // return back()->with('success', 'Successfully created!');
-        return redirect('/activity/'.$activity->id)->with('success', 'Successfully created');
+        return redirect('/activity/'.$activity->id)->with('success', 'Successfully created!');
+    }
+
+    public function complete($id, Request $request)
+    {
+       $validatedInputs = $request->validate
+        ([
+            'activity_status_id'
+        ]);
+
+        $validatedInputs['activity_status_id'] = 1;
+
+        $activity = Activity::where('id', $id)->update($validatedInputs);
+
+        return redirect('/activities')->with('success', 'Update complete!');
+    }
+
+    public function incomplete($id, Request $request)
+    {
+       $validatedInputs = $request->validate
+        ([
+            'activity_status_id'
+        ]);
+
+        $validatedInputs['activity_status_id'] = 2;
+
+        $activity = Activity::where('id', $id)->update($validatedInputs);
+
+        return redirect('/activities')->with('success', 'Update complete!');
     }
 
     /**
@@ -130,25 +154,17 @@ class ActivityController extends Controller
      */
     public function update($id, Request $request)
     {
-        // UPDATE activities SET title = 'new title', description = 'new description', activity_status_id = 3;
         $validatedInputs = $request->validate
         ([
             'title' => ['required', 'string', 'max:255'],
             'description' => 'required',
             'activity_status_id',
-            'file' => 'required'
+            'file' => 'required|image'
         ]);
 
         $validatedInputs['file'] = $request->file('file')->store('public/images');
 
         $validatedInputs['activity_status_id'] = 3;
-
-        // Activity::where('id', $id)
-        // ->update([
-        //     'title' => $request->title,
-        //     'description' => $request->description,
-        //     'activity_status_id' => 1
-        // ]);
 
         $activity = Activity::where('id', $id)->update($validatedInputs);
 

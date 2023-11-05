@@ -40,7 +40,7 @@
                         </div>
                         <div class="mb-3">
                             <p class="text-right">
-                                <button type="button" onclick='window.location.href = "/activity/{{ $activity->id }}"' class="btn btn-secondary" >Back</button>
+                                <button type="button" onclick='window.location.href = "/activity/{{ $activity->id }}"' class="btn btn-secondary">Back</button>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </p>
                         </div>

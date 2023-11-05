@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Id No.{{ $activity->id }}</div>
+                <div class="card-header">Id No. {{ $activity->id }}</div>
 
                 <div class="card-body container">
                         <div class="row justify-content-start">
@@ -42,12 +42,20 @@
                                 <button type="button" class="btn btn-secondary" onclick='window.location.href = "/activities"'>Back</button>
                             </div><br><br>
                             @elseif ($user->roles_id == 1)
-                            <!-- <div class="col-2">
-                                <button type="button" class="btn btn-primary">Complete</button>
-                            </div>
-                            <div class="col-3">
-                                <button type="button" class="btn btn-primary">Incomplete</button>
-                            </div> -->
+                                <div class="col-2">
+                                    <form action="/activity/{{ $activity->id }}/complete" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                        <button type="submit" class="btn btn-primary">Complete</button>
+                                    </form>
+                                </div>
+                                <div class="col-3">
+                                    <form action="/activity/{{ $activity->id }}/incomplete" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                        <button type="submit" class="btn btn-primary">Incomplete</button>
+                                    </form>
+                                </div>
                             <div class="col-1">
                                 <button type="button" class="btn btn-secondary" onclick='window.location.href = "/activities"'>Back</button>
                             </div>
@@ -60,6 +68,7 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $activity->description }}</p>
+                            <img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" ></img>
                         </div>
                     </div><br>
                     @if(session('success'))

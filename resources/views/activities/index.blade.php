@@ -29,6 +29,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">File</th>
                             <th scope="col">Activity Status</th>
+                            <th scope="col">Owner</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,8 +38,10 @@
                             <th scope="row">{{ $activity->id }}</th>
                             <td><a href="/activity/{{ $activity->id }}">{{ $activity->title }}</a></td>
                             <td>{{ $activity->description }}</td>
-                            <td>{{ $activity->file }}</td>
+                            <!-- <td>{{ $activity->file }}</td> -->
+                            <td><img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="100" width="100"></img></td>
                             <td>{{ $activity->status }}</td>
+                            <td>{{ $activity->name }}</td>
                             </tr>
                             @endforeach
 

@@ -20,6 +20,8 @@
                     <h2>Welcome {{ Auth::user()->name }}! (Student)</h2>
                     @endif
 
+                    <button type="button" class="btn btn-primary" onclick='window.location.href = "/activities"'>View activities</button>
+
                     <!-- <p>Welcome {{ Auth::user()->name }}!</p> -->
                 </div>
             </div>

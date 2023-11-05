@@ -29,5 +29,7 @@ Route::get('/activity', [App\Http\Controllers\ActivityController::class, 'create
 Route::get('/activity/{id}/edit', [App\Http\Controllers\ActivityController::class, 'edit']);
 
 Route::post('/activity', [App\Http\Controllers\ActivityController::class, 'store']);
+Route::put('/activity/{id}/complete', [App\Http\Controllers\ActivityController::class, 'complete']);
+Route::put('/activity/{id}/incomplete', [App\Http\Controllers\ActivityController::class, 'incomplete']);
 Route::put('/activity/{id}/edit', [App\Http\Controllers\ActivityController::class, 'update']);
 Route::delete('/activity/{id}', [App\Http\Controllers\ActivityController::class, 'destroy']);
