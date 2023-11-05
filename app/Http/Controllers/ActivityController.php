@@ -16,19 +16,20 @@ class ActivityController extends Controller
      */
     public function index()
     {
-                // SELECT * FROM activity_portal_dev.activities;
+        // SELECT * FROM activity_portal_dev.activities;
 
-                // $activities =  Activity::all();
+        // $activities =  Activity::all();
 
-                // $activities = Activity::simplePaginate(5);
+        // $activities = Activity::simplePaginate(5);
 
-                $activities = DB::table('activities')->join('activity_status', 'activities.activity_status_id', '=', 'activity_status.id')->select('activities.*', 'activity_status.status')->get();
+        $activities = DB::table('activities')->join('activity_status', 'activities.activity_status_id', '=', 'activity_status.id')->select('activities.*', 'activity_status.status')->get();
 
-                $user = auth()->user();
-                return view('activities.index', [
-                'activities' => $activities,
-                'user' => $user
-            ]);
+        $user = auth()->user();
+        return view('activities.index',
+        [
+        'activities' => $activities,
+        'user' => $user
+        ]);
     }
 
     public function show($id)
@@ -38,10 +39,11 @@ class ActivityController extends Controller
 
         $user = auth()->user();
 
-        return view('activities.show', [
-                'activity' => $activity,
-                'user' => $user
-            ]);
+        return view('activities.show',
+        [
+            'activity' => $activity,
+            'user' => $user
+        ]);
     }
 
     /**
@@ -76,7 +78,8 @@ class ActivityController extends Controller
         //    'activity_status_id' => 3,
         // ]);
 
-        $validatedInput = $request -> validate([
+        $validatedInput = $request -> validate
+        ([
             'title' => ['required', 'string', 'max:255'],
             'description' => 'required',
             'activity_status_id',
@@ -112,7 +115,8 @@ class ActivityController extends Controller
         // SELECT * FROM activity_portal_dev.activities WHERE id = 1;
         $activity = Activity::find($id);
 
-        return view('activities.edit',[
+        return view('activities.edit',
+        [
             'activity' => $activity
         ]);
     }
@@ -127,7 +131,8 @@ class ActivityController extends Controller
     public function update($id, Request $request)
     {
         // UPDATE activities SET title = 'new title', description = 'new description', activity_status_id = 3;
-        $validatedInputs = $request->validate([
+        $validatedInputs = $request->validate
+        ([
             'title' => ['required', 'string', 'max:255'],
             'description' => 'required',
             'activity_status_id',

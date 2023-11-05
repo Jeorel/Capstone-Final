@@ -11,6 +11,7 @@
                     @elseif ($user->roles_id == 2)
                     <h1 class="text-right">{{ __('Activities') }} (Student) <button type="button" class="btn btn-primary" onclick='window.location.href = "/activity"'>Create an activity</button></h1>
                     @endif
+
                 </div>
 
                 <div class="card-body">

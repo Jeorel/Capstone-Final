@@ -61,6 +61,17 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3 justify-content-center">
+                            <div class="form-check form-check-inline col-2">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">{{ __('Teacher') }}</label>
+                            </div>
+                            <div class="form-check form-check-inline col-1">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">{{ __('Student') }}</label>
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
