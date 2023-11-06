@@ -17,12 +17,6 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        // SELECT * FROM activity_portal_dev.activities;
-
-        // $activities =  Activity::all();
-
-        // $activities = Activity::simplePaginate(5);
-
         $user = auth()->user();
 
         $activities;
@@ -41,7 +35,6 @@ class ActivityController extends Controller
 
     public function show($id)
     {
-        // SELECT * FROM activity_portal_dev.activities WHERE id = 1;
         $activity = Activity::find($id);
 
         $user = auth()->user();
