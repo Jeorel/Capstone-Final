@@ -115,6 +115,7 @@ return [
     'required_with_all' => 'The :attribute field is required when :values are present.',
     'required_without' => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
+    'roles' => 'The roles should be specified',
     'same' => 'The :attribute and :other must match.',
     'size' => [
         'numeric' => 'The :attribute must be :size.',

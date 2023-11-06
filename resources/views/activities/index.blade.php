@@ -39,7 +39,7 @@
                             <td><a href="/activity/{{ $activity->id }}">{{ $activity->title }}</a></td>
                             <td>{{ $activity->description }}</td>
                             <!-- <td>{{ $activity->file }}</td> -->
-                            <td><img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="100" width="100"></img></td>
+                            <td><img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="50" width="50"></img></td>
                             <td>{{ $activity->status }}</td>
                             <td>{{ $activity->name }}</td>
                             </tr>

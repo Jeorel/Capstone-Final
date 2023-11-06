@@ -68,7 +68,7 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $activity->description }}</p>
-                            <img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" ></img>
+                            <img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="800" width="700"></img>
                         </div>
                     </div><br>
                     @if(session('success'))
