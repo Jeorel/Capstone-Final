@@ -12,7 +12,7 @@
                             <div class="col-1">
                                 <button type="button" class="btn btn-primary" onclick='window.location.href = "/activity/{{ $activity->id }}/edit"'>Edit</button>
                             </div>
-                            <div class="col-2">
+                            <div class="col-9">
                                 <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
                                 <!-- Modal -->
@@ -38,25 +38,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-1">
+                            <div class="col">
                                 <button type="button" class="btn btn-secondary" onclick='window.location.href = "/activities"'>Back</button>
                             </div><br><br>
                             @elseif ($user->roles_id == 1)
-                                <div class="col-2">
+                                <div class="col">
                                     <form action="/activity/{{ $activity->id }}/complete" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                         <button type="submit" class="btn btn-primary">Complete</button>
                                     </form>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-8">
                                     <form action="/activity/{{ $activity->id }}/incomplete" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                         <button type="submit" class="btn btn-primary">Incomplete</button>
                                     </form>
                                 </div>
-                            <div class="col-1">
+                            <div class="col">
                                 <button type="button" class="btn btn-secondary" onclick='window.location.href = "/activities"'>Back</button>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $activity->description }}</p>
-                            <img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="800" width="700"></img>
+                            <img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="750" width="650"></img>
                         </div>
                     </div><br>
                     @if(session('success'))
@@ -76,21 +76,6 @@
                     {{ session('success') }}
                     </h6>
                     @endif
-
-                    <!-- <div class="card">
-                        <img src="#" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $activity->title }}</h5>
-                            <p class="card-text">{{ $activity->description }}</p>
-
-                            @if ($user->roles_id == 1)
-                            <a href="#" class="btn btn-primary">Complete</a>
-                            <a href="#" class="btn btn-primary">Incomplete</a>
-                            @elseif ($user->roles_id == 2)
-                            @endif
-
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
