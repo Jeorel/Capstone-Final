@@ -1,10 +1,53 @@
-*
-{
-    margin: 0;
-    padding: 0;
+*{
+    margin: 0%;
+    padding: 0%;
 }
 
-body
-{
-    background-color: aquamarine;
+body{
+    /* background-color: blue; */
+    background-image: url('/images/bg.jpg');
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.user-home{
+    color: blue;
+}
+
+
+#home-con{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-box{
+    background-color: rgba(216, 233, 255, 0.666);
+    text-align: center;
+    padding: 40px 90px;
+    color: white;
+    position: relative;
+    border-radius: 20px;
+}
+
+#home-dash{
+    /* background-color: white; */
+    font-weight: bold;
+}
+
+#home-card{
+    padding: 15px;
+}
+
+.img-show{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
 }
