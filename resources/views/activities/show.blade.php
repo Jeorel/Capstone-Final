@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" id="card-show">
                 <div class="card-header">Id No. {{ $activity->id }}</div>
 
                 <div class="card-body container">
@@ -41,6 +41,7 @@
                             <div class="col">
                                 <button type="button" class="btn btn-secondary" onclick='window.location.href = "/activities"'>Back</button>
                             </div><br><br>
+                            
                             @elseif ($user->roles_id == 1)
                                 <div class="col">
                                     <form action="/activity/{{ $activity->id }}/complete" method="POST" enctype="multipart/form-data">
@@ -68,7 +69,7 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $activity->description }}</p>
-                            <img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="750" width="650"></img>
+                            <img class="img-show" src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="750" width="650"></img>
                         </div>
                     </div><br>
                     @if(session('success'))
