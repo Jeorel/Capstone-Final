@@ -18,14 +18,14 @@
                         @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Title</label>
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}"><br>
+                            <input type="text" class="form-control" name="title" value="{{ old('title') }}" placeholder="Subject"><br>
                             @error('title')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3">{{ old('description') }}</textarea><br>
+                            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" placeholder="What is this about?">{{ old('description') }}</textarea><br>
                             @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -40,7 +40,7 @@
                         <div class="mb-3">
                             <p class="text-right">
                                 <button type="button" onclick='window.location.href = "/activities"' class="btn btn-danger" >Cancel</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
                             </p>
                         </div>
                     </form>

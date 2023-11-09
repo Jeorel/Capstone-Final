@@ -15,10 +15,27 @@ body{
     
 }
 
-.user-home{
-    color: blue;
+/* dashboard logo inside the card */
+
+.home-logo{
+    width: 15%;
+    height: auto;
 }
 
+.app-logo{
+    width: auto;
+    height: 35px;
+    margin: 0 2px;
+}
+
+.user-home{
+    color: whitesmoke;
+    margin-left: 60px;
+}
+
+.position-home{
+    margin-left: 60px;
+}
 
 #home-con{
     width: 100%;
@@ -26,13 +43,16 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 30px;
+    margin-top: 40px;
 }
 
+
 .profile-box{
-    background-color: rgba(216, 233, 255, 0.666);
-    text-align: center;
-    padding: 40px 90px;
-    color: white;
+    background-color: rgba(0, 0, 0, 0.666);
+    /* text-align: center; */
+    padding: 15px 45px;
+    color: whitesmoke;
     position: relative;
     border-radius: 20px;
 }
@@ -51,3 +71,49 @@ body{
     height: 100vh;
     object-fit: cover;
 }
+
+/* INDEX ACTIVITIES */
+#btn-index{
+    margin-bottom: 5px;
+    background-color: black;
+    color: white;
+}
+#btn-index:hover{
+    margin-bottom: 5px;
+    background-color: gray;
+    color: white;
+}
+
+#card-index{
+    background-color: rgba(0, 0, 0, 0.666);
+    color: whitesmoke;
+
+}
+
+#table-index{
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.797);
+    
+}
+
+/* BTN IN SUBMIT */
+#btn-create{
+    background-color: teal
+
+}
+#btn-create:hover{
+    background-color: rgb(0, 87, 87)
+
+}
+
+#btn-home{
+    background-color: gray;
+    margin: 5px 0 5px 300px;
+}
+
+#btn-home:hover{
+    background-color: black;
+    color: white;
+}
+
+/* .head-card{} */
