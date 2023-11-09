@@ -34,6 +34,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+            <img src="{{ asset('images/logo.jpg') }}" alt="logo" class="app-logo"> 
+
                 <a class="navbar-brand" href="/home">
                     {{ config('app.name', 'Laravel') }}
                 </a>

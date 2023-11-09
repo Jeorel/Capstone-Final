@@ -3,14 +3,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
+            
+        <button type="button" class="btn btn-primary" onclick='window.location.href = "/home"' id="btn-index">Back</button>
+
+            <div class="card" id="card-index">
                 <div class="card-header">
 
                     @if ($user->roles_id == 1)
                     <h1>{{ __('Activities') }} (Teacher)</h1>
                     @elseif ($user->roles_id == 2)
-                    <h1 class="text-right">{{ __('Activities') }} (Student) <button type="button" class="btn btn-primary" onclick='window.location.href = "/activity"'>Create an activity</button></h1>
+                    <h1 class="text-right">{{ __('Activities') }} (Student) <button type="button" class="btn btn-success" onclick='window.location.href = "/activity"' id="btn-create">Create an activity</button>
+                    
+                </h1>
                     @endif
+
+                    
 
                 </div>
 
@@ -21,7 +28,7 @@
                         </div>
                     @endif
 
-                    <table class="table">
+                    <table class="table" id="table-index">
                         <thead>
                             <tr>
                             <th scope="col">Id</th>
