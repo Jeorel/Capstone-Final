@@ -6,12 +6,13 @@
     <div class="profile-box">
             <!-- <div class="card" id="home-card"> -->
                 <div class="card-header" id="home-dash">
-                    <!-- <img src="{{ asset('images/logo.jpg') }}" alt="logo" class="home-logo">  -->
-                    <h4>{{ __('Profile') }}
                     
-                </h4>
+                    <!-- <h4>{{ __('Profile') }}</h4> -->
+                    <img src="{{ asset('images/logo.jpg') }}" alt="logo" class="home-logo"> 
+                    <img src="{{ asset('images/menu.jpg') }}" alt="menu" class="menu-icon">
+
             </div>
-                <hr>
+                <!-- <hr> -->
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,16 +21,15 @@
                         </div>
                     @endif
 
-                    @if ($user->roles_id == 1)
-                    <h6>Name: <span><h3 class="user-home">{{ Auth::user()->name }}</h3></span></h6>
                     
-                    <p>Title: <span><h5>Teacher</h5></span></p>
+
+                    @if ($user->roles_id == 1)
+                    <h3 class="user-name">{{ Auth::user()->name }}</h3>
+                    <h5>Teacher</h5>
                     
 
                     @elseif ($user->roles_id == 2)
-                    <h6>Name:</h6>
-                    <h3 class="user-home">{{ Auth::user()->name }}</h3>
-                    <p>Title:</p>
+                    <h3 class="user-name">{{ Auth::user()->name }}</h3>
                     <h5>Student</h5>
                     @endif
 

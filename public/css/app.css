@@ -17,10 +17,7 @@ body{
 
 /* dashboard logo inside the card */
 
-.home-logo{
-    width: 15%;
-    height: auto;
-}
+
 
 .app-logo{
     width: auto;
@@ -49,12 +46,39 @@ body{
 
 
 .profile-box{
-    background-color: rgba(0, 0, 0, 0.666);
-    /* text-align: center; */
+    margin: 90px;
+    background-color: rgba(245, 245, 245, 0.903);
+    text-align: center;
     padding: 15px 45px;
-    color: whitesmoke;
+    color: black;
     position: relative;
-    border-radius: 20px;
+    border-radius: 30px;
+}
+
+.menu-icon{
+width: 20px;
+position: absolute;
+left: 40px;
+top: 20px;
+}
+
+.user-name{
+    text-decoration: underline;
+}
+
+.card-body{
+    /* position: relative;
+    top: 50px; */
+    margin-top: 40px;
+}
+
+.home-logo{
+    width: 20%;
+    height: auto;
+    width: 25px;
+position: absolute;
+right: 40px;
+top: 20px;
 }
 
 #home-dash{
@@ -106,9 +130,12 @@ body{
 
 }
 
+
+/* HOME BLADE FILE */
+
 #btn-home{
     background-color: gray;
-    margin: 5px 0 5px 300px;
+    margin: 5px;
 }
 
 #btn-home:hover{
