@@ -54,10 +54,10 @@
                                     <form action="/activity/{{ $activity->id }}/incomplete" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-                                        <button type="submit" class="btn btn-primary">Incomplete</button>
+                                        <button type="submit" class="btn btn-danger" id="incomplete-show">Incomplete</button>
                                     </form>
                                 </div>
-                            <div class="col">
+                            <div class="col" id="back-show">
                                 <button type="button" class="btn btn-secondary" onclick='window.location.href = "/activities"'>Back</button>
                             </div>
                         </div>

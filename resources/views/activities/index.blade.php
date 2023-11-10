@@ -10,9 +10,9 @@
                 <div class="card-header">
 
                     @if ($user->roles_id == 1)
-                    <h1>{{ __('Activities') }} (Teacher)</h1>
+                    <h1 class="header-table-teacher">{{ __('Activities') }}</h1>
                     @elseif ($user->roles_id == 2)
-                    <h1 class="text-right">{{ __('Activities') }} (Student) <button type="button" class="btn btn-success" onclick='window.location.href = "/activity"' id="btn-create">Create an activity</button>
+                    <h1 class="text-right">{{ __('Activities') }}<button type="button" class="btn btn-success" onclick='window.location.href = "/activity"' id="btn-create">Create an activity</button>
                     
                 </h1>
                     @endif
@@ -21,7 +21,7 @@
 
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" id="table-whole">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -32,23 +32,27 @@
                         <thead>
                             <tr>
                             <th scope="col">Id</th>
+                            <th scope="col">Owner</th>
+
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
                             <th scope="col">File</th>
                             <th scope="col">Activity Status</th>
-                            <th scope="col">Owner</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($activities as $activity)
                             <tr>
                             <th scope="row">{{ $activity->id }}</th>
-                            <td><a href="/activity/{{ $activity->id }}">{{ $activity->title }}</a></td>
+                            <td><a href="/activity/{{ $activity->id }}">{{ $activity->name }}</a></td>
+
+                            <td>{{ $activity->title }}</td>
                             <td>{{ $activity->description }}</td>
                             <!-- <td>{{ $activity->file }}</td> -->
-                            <td><img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="50" width="50"></img></td>
+                            <td>
+                                <img src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="50" width="50" class="img-index"></img>
+                            </td>
                             <td>{{ $activity->status }}</td>
-                            <td>{{ $activity->name }}</td>
                             </tr>
                             @endforeach
 
