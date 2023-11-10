@@ -110,6 +110,18 @@ top: 20px;
     background-position: center;
 }
 
+/* LOGIN */
+.col-md-5{
+    /* position: absolute;
+    top: 100px; */
+}
+
+.card{
+    border-radius: 20px;
+    background-color: rgba(245, 245, 245, 0.903);
+
+}
+
 /* INDEX ACTIVITIES */
 .owner-name{
     text-decoration: none;
