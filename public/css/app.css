@@ -111,6 +111,12 @@ top: 20px;
 }
 
 /* INDEX ACTIVITIES */
+.owner-name{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
 #btn-index{
     margin-bottom: 5px;
     background-color: black;
@@ -171,6 +177,18 @@ table{
 
 }
 
+/* TABLE */
+
+.title-table{
+    background-color: skyblue;
+}
+
+/* .btn-create{
+    position: absolute;
+    top: 10px;
+    left: 90px;
+} */
+
 
 /* HOME BLADE FILE */
 
@@ -198,3 +216,5 @@ table{
     position: absolute;
     left: 10rem;
 }
+
+

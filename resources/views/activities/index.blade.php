@@ -10,11 +10,19 @@
                 <div class="card-header">
 
                     @if ($user->roles_id == 1)
-                    <h1 class="header-table-teacher">{{ __('Activities') }}</h1>
+                    <h1 class="header-table-teacher"><center>{{ __('Activities') }}</center></h1>
+
+                    <h6><center>Note: Just click on the owners' name to see more information about the submitted activities and to give the status.</center></h6>
+
+
                     @elseif ($user->roles_id == 2)
-                    <h1 class="text-right">{{ __('Activities') }}<button type="button" class="btn btn-success" onclick='window.location.href = "/activity"' id="btn-create">Create an activity</button>
+                    <h1 class="text-right"><center>{{ __('Activities') }}</center></h1>
+                    <h6><center>Note: Just click on the owners' name to edit/delete information about the submitted activities.</center></h6>
+                   <center><button type="button" class="btn btn-success" onclick='window.location.href = "/activity"' id="btn-create">Create an activity</button></center> 
                     
-                </h1>
+                
+                
+
                     @endif
 
                     
@@ -44,9 +52,9 @@
                             @foreach ($activities as $activity)
                             <tr>
                             <th scope="row">{{ $activity->id }}</th>
-                            <td><a href="/activity/{{ $activity->id }}">{{ $activity->name }}</a></td>
+                            <td><a href="/activity/{{ $activity->id }}" class="owner-name">{{ $activity->name }}</a></td>
 
-                            <td>{{ $activity->title }}</td>
+                            <td class="title-table">{{ $activity->title }}</td>
                             <td>{{ $activity->description }}</td>
                             <!-- <td>{{ $activity->file }}</td> -->
                             <td>

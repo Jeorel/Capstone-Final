@@ -65,10 +65,10 @@
                     </div>
                     <div class="card">
                         <div class="card-header">
-                        <h3>{{ $activity->title }}</h5>
+                        <h3><center>{{ $activity->title }}</center></h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">{{ $activity->description }}</p>
+                            <p class="card-text"><center>{{ $activity->description }}</center></p>
                             <img class="img-show" src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="750" width="650"></img>
                         </div>
                     </div><br>
