@@ -31,6 +31,7 @@ class ActivityController extends Controller
         'activities' => $activities,
         'user' => $user
         ]);
+        
     }
 
     public function show($id)

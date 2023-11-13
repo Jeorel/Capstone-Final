@@ -1,6 +1,6 @@
 *{
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
 }
 
 body{
@@ -56,26 +56,36 @@ body{
 }
 
 .menu-icon{
-width: 20px;
+width: 22px;
 position: absolute;
 left: 40px;
 top: 20px;
 }
 
+.profile-pic{
+    margin-top: 40px;
+    width: 150px;
+    border-radius: 50%;
+    background: black;
+    padding: 6px;
+}
+
+.title-position{
+    text-decoration: italic;
+}
+
 .user-name{
+    /* position: relative; */
+    margin-top: 10px;
     text-decoration: underline;
 }
 
-.card-body{
-    /* position: relative;
-    top: 50px; */
-    margin-top: 40px;
-}
+
 
 .home-logo{
     width: 20%;
     height: auto;
-    width: 25px;
+    width: 30px;
 position: absolute;
 right: 40px;
 top: 20px;
@@ -92,11 +102,33 @@ top: 20px;
 
 .img-show{
     width: 100%;
-    height: 100vh;
+    height: 45vh;
     object-fit: cover;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* LOGIN */
+.col-md-5{
+    /* position: absolute;
+    top: 100px; */
+}
+
+.card{
+    border-radius: 20px;
+    background-color: rgba(245, 245, 245, 0.903);
+
 }
 
 /* INDEX ACTIVITIES */
+.owner-name{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
 #btn-index{
     margin-bottom: 5px;
     background-color: black;
@@ -109,15 +141,42 @@ top: 20px;
 }
 
 #card-index{
-    background-color: rgba(0, 0, 0, 0.666);
-    color: whitesmoke;
-
+    background-color: rgba(245, 245, 245, 0.903);
+    color: black;
+    border-radius: 30px;
+    box-shadow: 0 .4rem .8rem #0005;
 }
 
 #table-index{
+    border-radius: 30px;    
+    background-color: #fff5;
+
+}
+
+table{
+    background-color: #fff5;
     border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.797);
-    
+
+}
+
+#table-whole{
+    background-color: #fff5;
+    border-radius: 30px;
+
+}
+
+.card-body{
+    /* position: relative;
+    top: 50px; */
+    /* margin-top: 5px; */
+}
+
+.header-table-teacher{
+    text-align: center;
+}
+
+.img-index{
+    border-radius: 7px;
 }
 
 /* BTN IN SUBMIT */
@@ -130,17 +189,44 @@ top: 20px;
 
 }
 
+/* TABLE */
+
+.title-table{
+    background-color: skyblue;
+}
+
+/* .btn-create{
+    position: absolute;
+    top: 10px;
+    left: 90px;
+} */
+
 
 /* HOME BLADE FILE */
 
 #btn-home{
-    background-color: gray;
+    background-color: black;
     margin: 5px;
 }
 
 #btn-home:hover{
-    background-color: black;
+    background-color: gray;
     color: white;
 }
 
 /* .head-card{} */
+
+
+/* SHOW BLADE */
+
+#back-show{
+    position: absolute;
+    left: 20rem;
+}
+
+#incomplete-show{
+    position: absolute;
+    left: 10rem;
+}
+
+

@@ -54,10 +54,10 @@
                                     <form action="/activity/{{ $activity->id }}/incomplete" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
-                                        <button type="submit" class="btn btn-primary">Incomplete</button>
+                                        <button type="submit" class="btn btn-danger" id="incomplete-show">Incomplete</button>
                                     </form>
                                 </div>
-                            <div class="col">
+                            <div class="col" id="back-show">
                                 <button type="button" class="btn btn-secondary" onclick='window.location.href = "/activities"'>Back</button>
                             </div>
                         </div>
@@ -65,10 +65,10 @@
                     </div>
                     <div class="card">
                         <div class="card-header">
-                        <h3>{{ $activity->title }}</h5>
+                        <h3><center>{{ $activity->title }}</center></h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">{{ $activity->description }}</p>
+                            <p class="card-text"><center>{{ $activity->description }}</center></p>
                             <img class="img-show" src="{{URL::asset('/storage/images/'.substr($activity->file, 14))}}" height="750" width="650"></img>
                         </div>
                     </div><br>
