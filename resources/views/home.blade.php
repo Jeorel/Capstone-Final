@@ -6,12 +6,12 @@
     <div class="profile-box">
             <!-- <div class="card" id="home-card"> -->
                 <div class="card-header" id="home-dash">
-                    
+
                     <!-- <h4>{{ __('Profile') }}</h4> -->
                     <!-- <img src="{{ asset('images/logo.jpg') }}" alt="logo" class="home-logo">  -->
                     <img src="{{ asset('images/pic.jpg') }}" alt="Profile Picture" class=" profile-pic">
-                    
-  <!-- <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">   
+
+  <!-- <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
   </button> -->
 <img src="{{ asset('images/menu.jpg') }}" alt="menu" class="menu-icon dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 <ul class="dropdown-menu">
@@ -77,5 +77,5 @@
         </div>
     </div>
     </div>
-</div> 
+</div>
 @endsection
